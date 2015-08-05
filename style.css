@@ -1,0 +1,49 @@
+ul.json, ul.json ul {
+    display: inline-block;
+    width: auto;
+    padding-left: 18px;
+    font-family: Arial;
+    font-size: 14px;
+    list-style-type: none;
+    line-height: 18px;
+}
+
+ul.json ul {
+    display: block;
+    border-left: 1px dashed #888;
+}
+
+ul.json .parent {
+    display: block;
+    width: 100%;
+    margin-left: -6px;
+    padding: 4px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+ul.json ul:hover, ul.json li:hover > ul {
+    border-left-style: solid;
+}
+
+ul.json .parent:hover {
+    border-color:#888;
+}
+
+ul.json .parent:before {
+    margin-right: 10px;
+    content: '\25BC';
+    font-size: 0.9em;
+}
+
+ul.json .parent.collapsed:before {
+    content: '\25B6';
+}
+
+ul.json ul.collapsed {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
