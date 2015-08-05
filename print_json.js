@@ -1,6 +1,7 @@
 function print_json(obj) {
     /* the ul element to populate */
     var ul = document.createElement("ul");
+    ul.classList.add("json");
 
     /* for each element in our array/object... */
     for (var i in obj) {
@@ -12,7 +13,7 @@ function print_json(obj) {
         
         /* always include the key/index of this item */
         var span = document.createElement("span");
-        span.className = "obj_key";
+        span.classList.add("obj_key");
         span.appendChild(document.createTextNode(i + ": "));
         li.appendChild(span);
 
@@ -25,7 +26,7 @@ function print_json(obj) {
 
             /* otherwise, treat this li as a parent, and recurse */
             } else {
-                span.className += " parent";
+                span.classList.add("parent");
                 li.appendChild(print_json(obj[i]));
             }
 
@@ -33,7 +34,7 @@ function print_json(obj) {
         } else {
             /* then append the item wrapped in quotes */
             var span = document.createElement("span");
-            span.className = "obj_value";
+            span.classList.add("obj_value");
             span.appendChild(document.createTextNode('"' + obj[i] + '"'));
             li.appendChild(span);
         }
