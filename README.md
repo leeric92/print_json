@@ -23,24 +23,24 @@ You need to use event delegation since the entire list is added to the DOM dynam
 
 ### Vanilla
 
-		window.onload = function () {
-		    document.onclick = function(e) {
-		        if (e.target.classList.contains("parent")) {
-		            var ul = e.target.parentNode.getElementsByTagName("ul")[0];
-		            if (ul.classList.contains("collapsed")) {
-		                e.target.classList.remove("collapsed"); 
-		                ul.classList.remove("collapsed");
-		            } else {
-		                e.target.classList.add("collapsed");
-		                ul.classList.add("collapsed");
-		            }
-		        }
-		    };
-		};
+    window.onload = function () {
+        document.onclick = function(e) {
+            if (e.target.classList.contains("parent")) {
+                var ul = e.target.parentNode.getElementsByTagName("ul")[0];
+                if (ul.classList.contains("collapsed")) {
+                    e.target.classList.remove("collapsed"); 
+                    ul.classList.remove("collapsed");
+                } else {
+                    e.target.classList.add("collapsed");
+                    ul.classList.add("collapsed");
+                }
+            }
+        };
+    };
 
 ### jQuery
 
-		$(function () {
+    $(function () {
         $(document).on("click", ".parent", function (e) {
             $(this).toggleClass("collapsed");
             $(this).siblings("ul.json").toggleClass("collapsed");
