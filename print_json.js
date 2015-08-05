@@ -12,31 +12,31 @@ function print_json(obj) {
         if (typeof obj[i] === "function") continue;
         
         /* always include the key/index of this item */
-        var span = document.createElement("span");
-        span.classList.add("obj_key");
-        span.appendChild(document.createTextNode(i + ": "));
-        li.appendChild(span);
+        var objkey = document.createElement("span");
+        objkey.classList.add("obj_key");
+        objkey.appendChild(document.createTextNode(i + ": "));
+        li.appendChild(objkey);
 
         /* if we're going to print an object... */
         if (typeof obj[i] === "object") {
             /* first make sure it's not null */
             /* or if it's an array, make sure it has length */
-            if (obj[i] == null || obj[i].length) {
+            if (obj[i] == null || obj[i].length === 0) {
                 continue;
 
             /* otherwise, treat this li as a parent, and recurse */
             } else {
-                span.classList.add("parent");
+                objkey.classList.add("parent");
                 li.appendChild(print_json(obj[i]));
             }
 
         /* if we're just printing an item... */
         } else {
             /* then append the item wrapped in quotes */
-            var span = document.createElement("span");
-            span.classList.add("obj_value");
-            span.appendChild(document.createTextNode('"' + obj[i] + '"'));
-            li.appendChild(span);
+            var objval = document.createElement("span");
+            objval.classList.add("obj_value");
+            objval.appendChild(document.createTextNode('"' + obj[i] + '"'));
+            li.appendChild(objval);
         }
 
         /* append this element to the entire list */
